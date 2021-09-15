@@ -1,6 +1,5 @@
 # Red-Team-VS-Blue-Team
 
-# Red Team VS Blue Team
 
 Monitoring Setup Instructions
 
