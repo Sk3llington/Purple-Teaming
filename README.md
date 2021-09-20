@@ -1,4 +1,4 @@
-# Red-Team-VS-Blue-Team
+# Purple Teaming
 
 
 Monitoring Setup Instructions
