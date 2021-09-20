@@ -65,18 +65,18 @@ Today, I will act as an offensive security Red Teamer to exploit a vulnerable Ca
 
 ### The following tools will be used for this red team engagement:
 
->Firefox
-  Hydra
-  Nmap
-  John the Ripper
-  Metasploit
-  curl
-  MSVenom
+- Firefox
+- Hydra
+- Nmap
+- John the Ripper
+- Metasploit
+- curl
+- MSVenom
 
 
 Now it's time to search for the webserver that I am looking to attack.
 
-##### Below, the `nmap` command I used to discover the IP address of the Linux web server and have all IPs discovered saved into the file `nmap_scanned_ips`:
+### Below, the `nmap` command I used to discover the IP address of the Linux web server and have all IPs discovered saved into the file `nmap_scanned_ips`:
 
 ```bash
 nmap -sn 192.168.0.0/24 | awk '/Nmap scan/{gsub(/[()]/,"",$NF); print $NF > "nmap_scanned_ips"}'
@@ -84,31 +84,35 @@ nmap -sn 192.168.0.0/24 | awk '/Nmap scan/{gsub(/[()]/,"",$NF); print $NF > "nma
 
 From the list of IPs that Nmap has discovered on my virtual private network:
 
-![nmap_scanned_ips]
+![nmap_scanned_ips](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/nmap_scanned_ips.png)
+
 
 I then run a service scan on all IPs except the IP of my Kali VM machine (192.168.1.90):
 
 
-![nmap_webserver_nmap_lookup]
+![nmap_webserver_nmap_lookup](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/nmap_webserver_nmap_lookup.png)
 
 
-I found the Linux Apache webserver I was looking for with IP address `192.168.1.105` on port `80`.
+I found the Linux Apache webserver I was looking for with the IP address `192.168.1.105` on port `80`.
 
 Next, I open a web browser to access the webserver:
 
-![webserver_webdirectory]
+![webserver_webdirectory](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/webserver_web_directory.png)
 
 
 Next, I am tasked with finding a secret folder and break into it.
 
-
 After reading the company's blog I found a lead on the location of the secret folder:
 
-![secret_folder_clue]
+> 192.168.1.105/company_folder/company_culture/file1.txt
 
-Next, in the "meet our team" section I found an interesting clue about who is in charge of the folder. His name is Ashton:
+![secret_folder_clue](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/secret_folder_clue.png)
 
-![secret_folder_admin_ashton]
+Next, in the "meet our team" section I found an interesting text file with a clue about who is in charge of the folder. His name is Ashton:
+
+> 192.168.1.105/meet_our_team/ashton.txt
+
+![secret_folder_admin_ashton](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/secret_folder_admin_ashton.png)
 
 Next, I used `Hydra` to brute force the access to the secret folder located at /company_folders/secret_folder.
 
