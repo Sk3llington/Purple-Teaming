@@ -66,12 +66,12 @@ Today, I will act as an offensive security Red Teamer to exploit a vulnerable Ca
 ### The following tools will be used for this red team engagement:
 
 >Firefox
- Hydra
- Nmap
- John the Ripper
- Metasploit
- curl
- MSVenom
+  Hydra
+  Nmap
+  John the Ripper
+  Metasploit
+  curl
+  MSVenom
 
 
 Now it's time to search for the webserver that I am looking to attack.
