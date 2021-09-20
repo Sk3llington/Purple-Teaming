@@ -15,6 +15,7 @@ I start by launching the Elastic Stack and Kibana on my monitoring server:
 ```bash
 filebeat modules enable apache
 ```
+
 ``bash
 filebeat setup
 ```
@@ -27,6 +28,7 @@ filebeat setup
 ```bash
 metricbeat modules enable apache
 ```
+
 ```bash
 metricbeat setup
 ```
