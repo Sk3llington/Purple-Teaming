@@ -16,7 +16,7 @@ I start by launching the Elastic Stack and Kibana on my monitoring server:
 filebeat modules enable apache
 ```
 
-``bash
+```bash
 filebeat setup
 ```
 
@@ -65,12 +65,12 @@ Today, I will act as an offensive security Red Teamer to exploit a vulnerable Ca
 ##### I will need to use the following tools, in no particular order:
 
 >Firefox
->Hydra
->Nmap
->John the Ripper
->Metasploit
->curl
->MSVenom
+Hydra
+Nmap
+John the Ripper
+Metasploit
+curl
+MSVenom
 
 
 Now it's time to search for the webserver that I am looking to attack.
