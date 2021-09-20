@@ -2,15 +2,14 @@
 
 Monitoring Setup Instructions
 
-As I attack the webserver I need to make sure that my Elastic Stack is logging all activity.
+As I attack the webserver I need to make sure that my Elastic Stack is recording my activity.
 
 I start by launching the Elastic Stack and Kibana on my monitoring server:
 
-![filebeat_setup.png]
 
-#### Setup Filebeat:
+#### Filebeat Setup:
 
-##### Run the following commands:
+##### Commands Used:
 
 ```bash
 filebeat modules enable apache
@@ -20,9 +19,12 @@ filebeat modules enable apache
 filebeat setup
 ```
 
-#### Setup Metricbeat:
+![filebeat_setup.png](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/filebeat_setup.png)
 
-##### Run the following commands:
+
+#### Metricbeat Setup:
+
+##### Commands Used:
 
 
 ```bash
@@ -33,19 +35,18 @@ metricbeat modules enable apache
 metricbeat setup
 ```
 
-![metrcibeat_setup.png]
+![metrcibeat_setup.png](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/metricbeat_setup.png)
 
 
-#### Setup Packetbeat:
+#### Packetbeat Setup:
 
-
-##### Run the following command:
+##### Commands Used:
 
 ```bash
 packetbeat setup
 ```
 
-Restart all 3 services. Run the following commands:
+Commands used to restart all 3 services:
 
 ```bash
 systemctl restart filebeat
@@ -60,17 +61,17 @@ systemctl restart packetbeat
 
 ## Time To Attack!
 
-Today, I will act as an offensive security Red Teamer to exploit a vulnerable Capstone VM.
+Today, I will act as an offensive security Red Teamer to exploit a vulnerable Capstone Virtual Machine.
 
-##### I will need to use the following tools, in no particular order:
+### The following tools will be used for this red team engagement:
 
 >Firefox
-Hydra
-Nmap
-John the Ripper
-Metasploit
-curl
-MSVenom
+ Hydra
+ Nmap
+ John the Ripper
+ Metasploit
+ curl
+ MSVenom
 
 
 Now it's time to search for the webserver that I am looking to attack.
