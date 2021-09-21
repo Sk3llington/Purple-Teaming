@@ -226,7 +226,7 @@ The logs indicate that an unauthorized actor was able to access protected data i
 
 ## Mitigations
 
-### Blocking Port Scan
+### Blocking the Port Scan
 
 #### Alarm:
 
@@ -234,7 +234,26 @@ The logs indicate that an unauthorized actor was able to access protected data i
 
 #### System hardening:
 
-- We can use the local firewall 
+- ICMP traffic can be filtered.
+- An IP allowed list can be enabled.
+- Be proactive and scan networks regurlarly, analyze the results and address any vulnerabilities.
+- Close all ports that are not truly needed or block them with a firewall.
 
+
+### Finding the Request for the Hidden Directory
+
+#### Alarm:
+
+- An alarm can be set to go off if the incoming IP is not on the allowed list of IP addresses.
+
+#### System Hardening:
+
+- Access to the sensitive file can be locally restricted to a specific user. Getting access to a web shell with a different user account won't allow access.
+- Files should be encrypted at rest.
+
+
+### Preventing Brute Force Attacks
+
+- 
 
 
