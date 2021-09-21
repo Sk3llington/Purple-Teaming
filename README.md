@@ -82,12 +82,12 @@ Now, it's time to search for the target webserver.
 nmap -sn 192.168.0.0/24 | awk '/Nmap scan/{gsub(/[()]/,"",$NF); print $NF > "nmap_scanned_ips"}'
 ```
 
-From the list of IPs that Nmap has discovered on my virtual private network:
+Below is the list of IPs that Nmap has discovered on my virtual private network:
 
 ![nmap_scanned_ips](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/nmap_scanned_ips.png)
 
 
-I then run a service scan on all IPs except the IP of my Kali VM machine (192.168.1.90):
+Next, I run a service scan on all IPs except the IP of my Kali VM machine (192.168.1.90):
 
 
 ![nmap_webserver_nmap_lookup](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/nmap_webserver_nmap_lookup.png)
