@@ -74,7 +74,7 @@ Today, I will act as an offensive security Red Teamer to exploit a vulnerable Ca
 - MSVenom
 
 
-Now it's time to search for the webserver that I am looking to attack.
+Now, it's time to search for the target webserver.
 
 ### Below, the `nmap` command I used to discover the IP address of the Linux web server and have all IPs discovered saved into the file `nmap_scanned_ips`:
 
