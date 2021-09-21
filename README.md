@@ -134,7 +134,7 @@ Next, I use Ashton's credentials to acces the 'secret_folder'. In the secret fol
 ![ashton_instruction_webdav](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/ashton_instructions_connect_webdav.png)
 
 
-I noticed that a hash for ryan's account is displayed on the page. I decided to use the 'Crack Station' website to crack it. It was successful and I obtained what seems to be a password, i.e., `linux4u`.
+I noticed that a hash for ryan's account is displayed on the page. I decided to use the 'Crack Station' website to try to crack it. It was successful and I obtained what seems to be a password, i.e., `linux4u`.
 
 ![crack_station_cracked_hash](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/Crack_station_cracked_hash.png)
 
