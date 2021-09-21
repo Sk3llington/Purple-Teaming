@@ -182,6 +182,8 @@ Below, the unusually high volume of requests and failed responses between my att
 
 ![identifying_port_scan](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/identifying_port_scan.png)
 
+**The requests were made from the IP address `192.168.1.90`.**
+
 ![identifying_port_scan](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/identifying_port_scan_2.png)
 
 ![error_vs_success_transac](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/brute_force_attack_error_vs_successful_transac.png)
@@ -202,7 +204,6 @@ Since I know when the interaction between my attacking machine and the target ma
 
 107,601 requests were made to the hidden directory 'secret_folder'. between Sep 15, 2021 @ 02:55:00 and Sep 15, 2021 @ 03:12:00
 
-The requests were made from the IP address `192.168.1.90`.
 
 ![requested_file_report](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/requested_file_report.png)
 
@@ -211,7 +212,7 @@ Below, the additional requests made after the successful brute force attack, i.e
 
 ### HTTP brute force attack
 
-When searching for the `url.path` "/company_folders/secret_folder/", I found the evidence of the HTTP brute force attack allowing me access to the 'secret_folder'. We can see the proof that `Hydra`, the brute force tool was used by looking at the section `user_agent.original`:
+When searching for the `url.path` "/company_folders/secret_folder/", I found the evidence of the HTTP brute force attack allowing me access to the 'secret_folder' during the red team engagement. I was also able to find clues that `Hydra` was used for the brute force attack by looking at the section `user_agent.original`:
 
 ![brute_force_hydra_clue](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/brute_force_Hydra_clue.png)
 
