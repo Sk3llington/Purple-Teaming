@@ -1,6 +1,6 @@
 # Purple Teaming
 
-Monitoring Setup Instructions
+### Monitoring Setup Instructions
 
 As I attack the webserver I need to make sure that my Elastic Stack is recording my activity.
 
