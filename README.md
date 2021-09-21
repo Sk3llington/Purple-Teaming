@@ -182,7 +182,7 @@ Below, the unusually high volume of requests and failed responses between my att
 
 ![identifying_port_scan](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/identifying_port_scan.png)
 
-**The requests were made from the IP address `192.168.1.90`.**
+The requests were made from the IP address **`192.168.1.90`**, my Kali Virtual Machine used to attack the target.
 
 ![identifying_port_scan](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/identifying_port_scan_2.png)
 
@@ -217,8 +217,17 @@ When searching for the `url.path` "/company_folders/secret_folder/", I found the
 ![brute_force_hydra_clue](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/brute_force_Hydra_clue.png)
 
 
+### Identifying the Webdav connection and upload of the `exploit.php` file
 
-- What kind of alarm would you set to detect this behavior in the future?
+The logs indicate that an unauthorized actor was able to access protected data in the 'Webdav' directory. I can see that the 'passwd.dav' file was requested via GET, and 'exploit.php' was uploaded via POST.
+
+![webdav_directory_requests](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/webdav_directory_requests.png)
+
+
+## Mitigations
+
+
+- What kind of alarm can we set to detect this behavior in the future?
 
 We can set an alert each time someone accesses the `secret_folder`.
 
