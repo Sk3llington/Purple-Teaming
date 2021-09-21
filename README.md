@@ -254,6 +254,15 @@ The logs indicate that an unauthorized actor was able to access protected data i
 
 ### Preventing Brute Force Attacks
 
-- 
+#### Alarm:
 
+- An alarm should be triggered when more than 100 requests per seconds for a duratin of 5 seconds is detected
+- An alarm should be triggered when an IP address that is not allowed is trying to authenticate
+
+#### System Hardening:
+
+- Limit failed login attempts
+- Limit logins to a specified IP address
+- Two factor authentication
+- Unique login URLs
 
