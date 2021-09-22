@@ -246,48 +246,52 @@ The logs indicate that an unauthorized actor was able to access protected data i
 
 #### Alarm:
 
-- An alarm can be set to detect unsually high volume of requests per second, with a threshold of 10 requests per second for more than 5 seconds for any given IP.
+- Alarms should trigger if a given IP address sends more than 10 requests per second for more than 5 seconds.
 
 #### System hardening:
 
-- ICMP traffic can be filtered.
-- An IP allowed list can be enabled.
-- Be proactive and scan networks regurlarly, analyze the results and address any vulnerabilities.
-- Close all ports that are not truly needed or block them with a firewall.
+- Filter ICMP traffic.
+- Enable an allowed IP list.
+- Close unused ports or block them with a firewall.
+- Proactive scan to identify running services and potential vulnerabilities to address.
+
 
 
 ### Finding the Request for the Hidden Directory
 
 #### Alarm:
 
-- An alarm can be set to go off if the incoming IP is not on the allowed list of IP addresses.
+- Alarms should trigger if an IP not on the “allow list” attempts to connect.
 
 #### System Hardening:
 
-- Access to the sensitive file can be locally restricted to a specific user. Getting access to a web shell with a different user account won't allow access.
-- Files should be encrypted at rest.
+- Access to the sensitive file(s) can be locally restricted to a specific user.
+- Encryption of file(s) at rest.
+
 
 
 ### Preventing Brute Force Attacks
 
 #### Alarm:
 
-- An alarm should be triggered when more than 100 requests per seconds for a duratin of 5 seconds is detected
-- An alarm should be triggered when an IP address that is not allowed is trying to authenticate
+- Alarms should trigger when more than 100 requests per seconds for a duration of 5 seconds is detected.
+- Alarms should trigger when an IP address that is “not allowed” is trying to authenticate.
 
 #### System Hardening:
 
-- Limit failed login attempts
-- Limit logins to a specified IP address
-- Two factor authentication
-- Unique login URLs
+- Configuring fail2ban or a similar utility would mitigate brute force attacks.
+- Limit failed login attempts.
+- Limit logins to a specified IP address.
+- Two factor authentication.
+- Unique login URLs.
+
 
 
 ### Detecting the WebDAV connection
 
 #### Alarm:
 
-- An alarm should be triggered by any read performed on files within webdav OR triggered by any unauthorized users’ activity within it.
+- Alarms should trigger by any read performed on files within webdav OR trigger by any unauthorized users’ activity within it.
 
 
 #### System Hardening:
@@ -296,11 +300,12 @@ The logs indicate that an unauthorized actor was able to access protected data i
 - Use Restrict Access function to create an ACL that restricts access to WebDAV-enabled resources defining what is allowed and who can perform an allowed action.
 
 
+
 ### Identifying Reverse Shell Uploads
 
 #### Alarm:
 
-- An alarm should be triggered upon receipt of any POST request containing a form or file data of an unauthorized file type, e.g., “.php”.
+- Alarms should trigger upon receipt of any POST request containing a form or file data of an unauthorized file type, e.g., “.php”.
 
 
 #### System Hardening:
@@ -308,6 +313,4 @@ The logs indicate that an unauthorized actor was able to access protected data i
 - Write permissions can be restricted on the host.
 - Uploads can be isolated into a sandboxed partition/folder.
 - Filebeat should be enabled and configured to monitor file uploads as well as activity in any sandboxed environment.
-
-
 
