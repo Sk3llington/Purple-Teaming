@@ -279,4 +279,27 @@ The logs indicate that an unauthorized actor was able to access protected data i
 
 #### Alarm:
 
-- 
+- An alarm should be triggered by any read performed on files within webdav OR triggered by any unauthorized users’ activity within it.
+
+
+#### System Hardening:
+
+- Administrators must install and configure Filebeat on the host to monitor WebDAV-related activity.
+- Use Restrict Access function to create an ACL that restricts access to WebDAV-enabled resources defining what is allowed and who can perform an allowed action.
+
+
+### Identifying Reverse Shell Uploads
+
+#### Alarm:
+
+- An alarm should be triggered upon receipt of any POST request containing a form or file data of an unauthorized file type, e.g., “.php”.
+
+
+#### System Hardening:
+
+- Write permissions can be restricted on the host.
+- Uploads can be isolated into a sandboxed partition/folder.
+- Filebeat should be enabled and configured to monitor file uploads as well as activity in any sandboxed environment.
+
+
+
