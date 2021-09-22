@@ -32,9 +32,13 @@ Below, is the full report, covering the red team engagement and the blue team fo
 - OS: Linux
 - Hostname: Kali
 
+
+
 - IPv4: 192.168.1.100
 - OS: Linux
 - Hostname: ELK
+
+
 
 - IPv4: 192.168.1.105
 - OS: Linux
