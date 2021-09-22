@@ -141,6 +141,8 @@ I noticed that a hash for ryan's account is displayed on the page. I decided to 
 
 Next, from the details left by Ashton on how to connect to the Webdav server, I figured out the path using the updated IP address (current address of the webserver 192.168.1.105) of their server and successfully accessed the login window and authenticated with the cracked credentials   `Ryan:linux4u` (i.e., Username: `Ryan` and password: `linux4u`).
 
+![webdav_access_window](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/webdav_access_windows.png)
+
 ![enter_pass_webdav](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/enter_pass_webdav.png)
 
 **Successfully logged in:**
