@@ -149,7 +149,7 @@ Once my malicious "exploit.php" file was uploaded to the server, I opened `Metas
 ![meterpreter_session_started](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/meterpreter_session_started.png)
 
 
-Once inside the target machine, I had access to all files. By moving to the 'var/' directory I managed to find the flag I was tasked to capture:
+Once inside the target machine, I had access to all files. Next, I managed to find the flag I was tasked to capture:
 
 
 ![flag_found](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/flag_found.png)
