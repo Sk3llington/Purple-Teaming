@@ -143,6 +143,17 @@ Next, I uploaded the reverse shell payload (exploit.php file) into the Webdav se
 ![copy_paste_exploitPHP_in_webdav](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/copy_paste_exploitPHP_in_webdav.png)
 
 
+Once my malicious "exploit.php" file was uploaded to the server, I opened `Metasploit` to connect to the web shell and started a meterpreter session, giving me remote access to the target machine and the freedom to explore the file system and further compromise the system and move laterally:
+
+
+![meterpreter_session_started](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/meterpreter_session_started.png)
+
+
+Once inside the target machine, I had access to all files. By moving to the 'var/' directory I managed to find the flag I was tasked to capture:
+
+
+![flag_found](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/flag_found.png)
+
 
 # Blue Team | Log Analysis and Attack Characterization
 
