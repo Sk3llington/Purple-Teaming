@@ -3,7 +3,7 @@
 
 In this Purple Team exercise, I played the role of both the attacker and the defender. 
 
-Below, is the full report, covering the red team engagement and the monitoring and forensics work performed to monitor and detect the attack. The report ends with a  list of proposed mitigations.
+Below, is the full report, covering the red team engagement and the blue team forensics work. The report ends with a  list of proposed mitigations.
 
 
 ## Table of Contents
