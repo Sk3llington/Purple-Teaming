@@ -274,3 +274,9 @@ The logs indicate that an unauthorized actor was able to access protected data i
 - Two factor authentication
 - Unique login URLs
 
+
+### Detecting the WebDAV connection
+
+#### Alarm:
+
+- 
