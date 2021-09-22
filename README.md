@@ -6,66 +6,43 @@ In this Purple Team exercise, I played the role of both the attacker and the def
 Below, is the full report, covering the red team engagement and the monitoring and forensics work performed to monitor and detect the attack. The report ends with a  list of proposed mitigations.
 
 
-### Monitoring Setup Instructions
+## Table of Contents
 
-As I attack the webserver I need to make sure that my Elastic Stack is recording my activity.
-
-I start by launching the Elastic Stack and Kibana on my monitoring server:
-
-
-#### Filebeat Setup:
-
-##### Commands Used:
-
-```bash
-filebeat modules enable apache
-```
-
-```bash
-filebeat setup
-```
-
-![filebeat_setup.png](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/filebeat_setup.png)
+1. Network Topology
+2. Red Team: Security Assessment
+3. Blue Team: Log Analysis and Attack Characterization
+4. Hardening: Proposed Alarms and Mitigation Strategies
 
 
-#### Metricbeat Setup:
-
-##### Commands Used:
+### Network Topology
 
 
-```bash
-metricbeat modules enable apache
-```
-
-```bash
-metricbeat setup
-```
-
-![metrcibeat_setup.png](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/metricbeat_setup.png)
+![network_diagram](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/Network_Diagram.drawio.png)
 
 
-#### Packetbeat Setup:
+##### Network
 
-##### Commands Used:
+- IP Range: 192.168.1.0/24
+- Netmask: 255.255.255.0
+- Gateway: 192.168.1.1
 
-```bash
-packetbeat setup
-```
+##### Machines
 
-Commands used to restart all 3 services:
+- IPv4: 192.168.1.90
+- OS: Linux
+- Hostname: Kali
 
-```bash
-systemctl restart filebeat
-```
-```bash
-systemctl restart metricbeat
-```
-```bash
-systemctl restart packetbeat
-```
+- IPv4: 192.168.1.100
+- OS: Linux
+- Hostname: ELK
+
+- IPv4: 192.168.1.105
+- OS: Linux
+- Hostname: Capstone
 
 
-## Red Team Engagement
+
+## Red Team Engagement | Security Assessment
 
 Today, I will act as an offensive security Red Teamer to exploit a vulnerable Capstone Virtual Machine.
 
@@ -173,7 +150,7 @@ Next, I uploaded the reverse shell payload (exploit.php file) into the Webdav se
 
 
 
-# Blue Team | Monitoring & Forensics
+# Blue Team | Log Analysis and Attack Characterization
 
 
 ## Identifying the offensive traffic
@@ -240,7 +217,8 @@ The logs indicate that an unauthorized actor was able to access protected data i
 ![webdav_directory_requests](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/webdav_directory_requests.png)
 
 
-## Mitigations
+## Hardening | Proposed Alarms and Mitigation Strategies
+
 
 ### Blocking the Port Scan
 
