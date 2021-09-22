@@ -30,7 +30,7 @@ Below, is the full report, covering the red team engagement and the blue team fo
 
 
 |     IPv4      |  OS   | Hostname |
-| ------------- |:-----:| --------:|
+| ------------- |:-----:| :-------:|
 | 192.168.1.90  | Linux | Kali     |
 | 192.168.1.100 | Linux | ELK      |
 | 192.168.1.105 | Linux | Capstone |
