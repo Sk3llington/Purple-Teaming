@@ -1,5 +1,11 @@
 # Purple Teaming
 
+
+In this Purple Team exercise, I played the role of both the attacker and the defender. 
+
+Below, is the full report, covering the red team engagement and the monitoring and forensics work performed to monitor and detect the attack. The report ends with a  list of proposed mitigations.
+
+
 ### Monitoring Setup Instructions
 
 As I attack the webserver I need to make sure that my Elastic Stack is recording my activity.
