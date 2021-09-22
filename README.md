@@ -197,7 +197,7 @@ I can see that the port scan I performed using `nmap` was logged which shows tha
 
 - What responses did the victim send back?
 
-Since I know when the interaction between my attacking machine and the target machine occured, I set the date and time to Sep 15, 2021 @ 02:55:00 and refresh my "HTTP Status Codes For The Top Queries" dashboard. Next, I looked at the top responses that the target machine sent back from my dashboard. The codes returned are `401`, `301`, `200`, `403`, `204`:
+Since I know when the interaction between my attacking machine and the target machine occured, I set the date and time to Sep 15, 2021 @ 02:55:00 and refresh my "HTTP Status Codes For The Top Queries" dashboard. Next, I looked at the top responses that the target machine sent back from my dashboard. The codes returned are `401`, `301`, `200`, `403`, `204`.
 
 ![responses_sent_back_by_victim](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/responses_sent_back_by_victim.png)
 
@@ -219,6 +219,10 @@ Below, the additional requests made after the successful brute force attack, i.e
 When searching for the `url.path` "/company_folders/secret_folder/", I found the evidence of the HTTP brute force attack allowing me access to the 'secret_folder' during the red team engagement. I was also able to find clues that `Hydra` was used for the brute force attack by looking at the section `user_agent.original`:
 
 ![brute_force_hydra_clue](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/brute_force_Hydra_clue.png)
+
+We can also see the evidence of the brute force attack with the graph below showing the `401` error response code returned by multiple attempts at accessing the 'secret_folder':
+
+![responses_sent_back_by_victim](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/responses_sent_back_by_victim.png)
 
 
 ### Identifying the Webdav connection and upload of the `exploit.php` file
