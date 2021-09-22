@@ -48,7 +48,7 @@ Today, I will act as an offensive security Red Teamer to exploit a vulnerable Ca
 - Nmap
 - Crack Station
 - Metasploit
-- MSVenom
+- msfvenom
 
 
 Now, it's time to search for the target webserver.
