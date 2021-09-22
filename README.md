@@ -29,8 +29,8 @@ Below, is the full report, covering the red team engagement and the blue team fo
 ##### Machines
 
 - IPv4: 192.168.1.90
-- OS: Linux
-- Hostname: Kali
+...OS: Linux
+...Hostname: Kali
 
 
 
