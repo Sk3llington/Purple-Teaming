@@ -200,7 +200,7 @@ The requests were made from the IP address **`192.168.1.90`**, my Kali Virtual M
 
 I can see the high volume of login attempts which shows that the interaction between the attacker and the target machine occured on Sep 15, 2021 @ 02:55:00.
 
-Since I know when the interaction between my attacking machine and the target machine occured, I set the date and time to Sep 15, 2021 @ 02:55:00 and refresh my "HTTP Status Codes For The Top Queries" dashboard. Next, I looked at the top responses that the target machine sent back from my dashboard. The codes returned are `401`, `301`, `200`, `403`, `204`.
+Since I know when the interaction between my attacking machine and the target machine occured, I set the date and time to Sep 15, 2021 @ 02:55:00 and filter out the "HTTP Status Codes For The Top Queries" results. Next, I look at the top responses that the target machine sent back. The codes returned are `401`, `301`, `200`, `403`, `204`.
 
 ![responses_sent_back_by_victim](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/responses_sent_back_by_victim.png)
 
