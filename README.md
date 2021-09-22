@@ -48,7 +48,6 @@ Today, I will act as an offensive security Red Teamer to exploit a vulnerable Ca
 - Nmap
 - Crack Station
 - Metasploit
-- curl
 - MSVenom
 
 
