@@ -104,7 +104,7 @@ After 10,143 attempts, the password was cracked:
 
 ![hydra_brute_forced_password](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/hydra_brute_forced_passwd.png)
 
-Next, I use Ashton's credentials to acces the 'secret_folder'. In the secret folder I found a note that he left to himself, detailing how to connect to the company's webdav server:
+Next, I use Ashton's credentials, i.e., username: `ashton` and password: `leopoldo`, to acces the 'secret_folder'. In the secret folder I found a note that he left to himself, detailing how to connect to the company's webdav server:
 
 > 192.168.1.105/company_folders/secret_folder/connect_to_corp_server
 
