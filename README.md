@@ -217,6 +217,9 @@ Since I know when the interaction between my attacking machine and the target ma
 Below, the additional requests made after the successful brute force attack, i.e., the attacker successfully gaining access to the 'secret_folder/'. The attacker accessed the folder **6** times out of **107,601** attempts.
 
 
+![brute_force_attack_proof](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/brute_force_attack_proof_report.png)
+
+
 ### HTTP brute force attack
 
 When searching for the `url.path` "/company_folders/secret_folder/", I found the evidence of the HTTP brute force attack allowing me access to the 'secret_folder' during the red team engagement. I was also able to find clues that `Hydra` was used for the brute force attack by looking at the section `user_agent.original`:
