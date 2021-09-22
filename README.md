@@ -28,21 +28,12 @@ Below, is the full report, covering the red team engagement and the blue team fo
 
 ##### Machines
 
-- IPv4: 192.168.1.90
-...OS: Linux
-...Hostname: Kali
 
-
-
-- IPv4: 192.168.1.100
-- OS: Linux
-- Hostname: ELK
-
-
-
-- IPv4: 192.168.1.105
-- OS: Linux
-- Hostname: Capstone
+|     IPv4      |  OS   | Hostname |
+| ------------- |:-----:| --------:|
+| 192.168.1.90  | Linux | Kali     |
+| 192.168.1.100 | Linux | ELK      |
+| 192.168.1.105 | Linux | Capstone |
 
 
 
