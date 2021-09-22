@@ -224,11 +224,11 @@ Below, the additional requests made after the successful brute force attack, i.e
 
 ### HTTP brute force attack
 
-When searching for the `url.path` "/company_folders/secret_folder/", I found the evidence of the HTTP brute force attack allowing me access to the 'secret_folder' during the red team engagement. I was also able to find clues that `Hydra` was used for the brute force attack by looking at the section `user_agent.original`:
+When searching for the `url.path` "/company_folders/secret_folder/", I found the evidence of the HTTP brute force attack that allowed me access to the 'secret_folder' during the red team engagement. I was also able to find clues that `Hydra` was used for the brute force attack by looking at the section `user_agent.original`:
 
 ![brute_force_hydra_clue](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/brute_force_Hydra_clue.png)
 
-We can also see the evidence of the brute force attack with the graph below showing the `401` error response code returned by multiple attempts at accessing the 'secret_folder':
+We can also see the evidence of the brute force attack with the graph below showing the high volume of `401` error response codes returned caused by multiple unsuccessful attempts at accessing the 'secret_folder':
 
 ![responses_sent_back_by_victim](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/responses_sent_back_by_victim.png)
 
