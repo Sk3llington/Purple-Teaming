@@ -198,10 +198,7 @@ The requests were made from the IP address **`192.168.1.90`**, my Kali Virtual M
 
 ![error_vs_success_transac](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/brute_force_attack_error_vs_successful_transac.png)
 
-I can see that the port scan I performed using `nmap` was logged which shows that the interaction between the attacker and the target machines occured on Sep 15, 2021 @ 02:55:00.
-
-
-- What responses did the victim send back?
+I can see the high volumes of login attempts, with a high volume of `401` response code indicating unauthenticated users failing to login, which shows that the interaction between the attacker and the target machines occured on Sep 15, 2021 @ 02:55:00.
 
 Since I know when the interaction between my attacking machine and the target machine occured, I set the date and time to Sep 15, 2021 @ 02:55:00 and refresh my "HTTP Status Codes For The Top Queries" dashboard. Next, I looked at the top responses that the target machine sent back from my dashboard. The codes returned are `401`, `301`, `200`, `403`, `204`.
 
