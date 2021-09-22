@@ -173,7 +173,7 @@ Next, I uploaded the reverse shell payload (exploit.php file) into the Webdav se
 
 
 
-# Blue Team Forensics
+# Blue Team | Monitoring & Forensics
 
 
 ## Identifying the offensive traffic
