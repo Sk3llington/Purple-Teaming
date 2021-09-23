@@ -248,12 +248,14 @@ The logs indicate that an unauthorized actor was able to access protected data i
 
 #### Alarm:
 
-- Alarms should trigger if an IP not on the “allow list” attempts to connect.
+- Alarms should trigger if an IP that is not on the whitelist attempts to connect.
 
 #### System Hardening:
 
 - Access to the sensitive file(s) can be locally restricted to a specific user.
+- Move folder to server with key-based SSH access from whitelisted IPs.
 - Encryption of file(s) at rest.
+- Log non whitelisted IPs access to the folder.
 
 
 
@@ -262,7 +264,8 @@ The logs indicate that an unauthorized actor was able to access protected data i
 #### Alarm:
 
 - Alarms should trigger when more than 100 requests per seconds for a duration of 5 seconds is detected.
-- Alarms should trigger when an IP address that is “not allowed” is trying to authenticate.
+- Alarms should trigger when an IP address that is not on the whitelist is trying to authenticate.
+
 
 #### System Hardening:
 
@@ -271,6 +274,8 @@ The logs indicate that an unauthorized actor was able to access protected data i
 - Limit logins to a specified IP address.
 - Two factor authentication.
 - Unique login URLs.
+- Require authentication to upload files.
+- Block upload of executable files.
 
 
 
