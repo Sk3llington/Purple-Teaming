@@ -7,7 +7,7 @@ Below, is the full report, covering the red team engagement and the blue team fo
 
 The executive summary can be found ![here](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/Capstone_Engagement.pdf).
 
-Note: For a detailed explanation on how to deploy an Elastic Stack instance, you can access my walkthrough ![here](https://github.com/Sk3llington/Elastic_Stack_Server)
+**Note:** For a detailed explanation on how to deploy an Elastic Stack instance, you can access my walkthrough ![here](https://github.com/Sk3llington/Elastic_Stack_Server)
 
 
 ## Table of Contents
