@@ -5,7 +5,7 @@ In this Purple Team exercise, I played the role of both the attacker and the def
 
 Below, is the full report, covering the red team engagement and the blue team forensics work. The report ends with a  list of proposed mitigations.
 
-The executive summary can be found ![here](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/Capstone_Engagement.pdf)
+The executive summary can be found ![here](https://github.com/Sk3llington/Purple-Teaming/blob/main/images/Capstone_Engagement.pdf).
 
 
 ## Table of Contents
