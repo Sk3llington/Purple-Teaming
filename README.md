@@ -1,4 +1,4 @@
-# Purple Teaming
+# Purple Teaming | Capstone Engagement
 
 
 In this Purple Team exercise, I played the role of both the attacker and the defender. 
