@@ -276,8 +276,6 @@ The logs indicate that an unauthorized actor was able to access protected data i
 - Limit logins to a specified IP address.
 - Two factor authentication.
 - Unique login URLs.
-- Require authentication to upload files.
-- Block upload of executable files.
 
 
 
@@ -307,4 +305,6 @@ The logs indicate that an unauthorized actor was able to access protected data i
 - Write permissions can be restricted on the host.
 - Uploads can be isolated into a sandboxed partition/folder.
 - Filebeat should be enabled and configured to monitor file uploads as well as activity in any sandboxed environment.
+- Require authentication to upload files.
+- Block upload of executable files.
 
