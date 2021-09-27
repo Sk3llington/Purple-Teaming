@@ -1,6 +1,9 @@
 # Purple Teaming | Capstone Engagement
 
 
+## Objectives
+
+
 In this Purple Team exercise, I played the role of both the attacker and the defender. 
 
 Below, is the full report, covering the red team engagement and the blue team forensics work. The report ends with a  list of proposed mitigations.
